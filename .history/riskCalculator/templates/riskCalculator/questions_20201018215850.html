@@ -1,0 +1,7 @@
+{% extends "startPage/base.html" %}
+{% load crispy_forms_tags %}
+{% crispy example_form %}
+
+{% block content %}
+    <h1>Hello {{user.username}} let's take risk assessment test</h1>
+{% endblock content %}

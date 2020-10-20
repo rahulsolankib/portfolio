@@ -1,0 +1,9 @@
+{% extends "user/user.htm" %}
+{% block content %}
+    <h1>Register Page</h1>
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+        </form>
+    </div>
+{% endblock content %}
