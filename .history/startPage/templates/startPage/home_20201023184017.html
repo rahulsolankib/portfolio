@@ -1,0 +1,25 @@
+{% extends "startPage/base.html" %}
+{% block content %}
+    <h1>{{details.title}}</h1>
+    <p>{{details.quote}}</p>
+    <h2>Founders : </h2>
+    <ol>
+        {% for founder in details.founders %}
+            <li><h3>{{founder}}</h3></li>
+        {% endfor %}
+    </ol>
+{% endblock content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% if title %}
+        <title>Django - {{title}}</title>
+    {% else %}
+        <title>Django</title>
+    {% endif %}
+</head>
+<body>
+    
+</body>
+</html>

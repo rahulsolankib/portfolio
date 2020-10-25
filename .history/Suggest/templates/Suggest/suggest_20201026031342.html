@@ -1,0 +1,85 @@
+{% extends "startPage/base.html" %}
+{% load crispy_forms_tags %}
+{% crispy example_form %}
+
+{% block content %}
+    <h1>Hello {{user.username}},</h1>
+    {% block custom_css %}
+    <style>
+    .bg_blue{
+    padding:10px;
+    border-radius:10px;
+    box-shadow:3px 3px 3px grey;
+    background:dodgerblue;
+    color:#fff;
+    }
+    .custom-block{
+    padding:15px;
+    border:1px solid dodgerblue;
+    }
+    </style>
+    {% endblock custom_css %}
+
+    {% block bodydata %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                    <div class="form-group bg_blue">
+                        List of companies where you should invest
+                    </div>
+                    <div class="table">
+                    <table class="table">
+                        <tr>
+                            <th>Rank</th>
+                            <th>Company Name</th>
+                            <th>Weight</th>
+                            <!-- <th>Standard</th>
+                            <th>Hobbies</th>
+                            <th>Roll No.</th>
+                            <th>Bio</th>
+                            <th>Profile</th> -->
+                            
+                        </tr>
+                        {% for company in companies %}
+                            <tr>
+                                <td >{{ company.rank }}</td>
+                                <td class="editable" data-id="{{ company.id }}" data-type="email">{{ company.company }}</td>
+
+                                <td class="editable" data-id="{{ company.id }}" data-type="name">{{ company.weight }}</td>
+                                <!-- <td class="editable" data-id="{{ company.id }}" data-type="standard">{{ company.standard }}</td>
+                                <td class="editable" data-id="{{ company.id }}" data-type="hobbies">{{ company.hobbies }}</td>
+                                <td class="editable" data-id="{{ company.id }}" data-type="roll_no">{{ company.roll_no }}</td>
+                                <td class="editable" data-id="{{ company.id }}" data-type="bio">{{ company.bio }}</td> -->
+                                <!-- <td><img src="/media/{{ company.profile_image }}" style="width:250px;height:100px"></td> -->
+                                <!-- <td class="editable" data-id="{{ company.id }}" data-type="created_at">{{ company.created_at }}</td> -->
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    {% if messages %}
+                            {% for message in messages %}
+                                {% if message.tags == 'success' %}
+                                    <div class="alert alert-success">{{ message }}</div>
+                                {% elif message.tags == 'error' %}
+                                    <div class="alert alert-danger">{{ message }}</div>
+                                {% endif %}
+                            {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+    <form method='POST'>
+        {% csrf_token %}
+        <input  type='submit' value="Save" />
+    </form><br>
+
+    {% endblock bodydata %}
+
+   
+{% endblock content %}
