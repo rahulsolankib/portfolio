@@ -30,6 +30,7 @@
                 <a class="nav-item nav-link" href="{% url 'About-Page' %}">About</a>
                 {% if user.is_authenticated %}
                     <a class="nav-item nav-link" href="{% url 'questions' %}">Risk-Assessment</a>
+                    <a class="nav-item nav-link" href="{% url 'suggest' %}">Suggested-Porfolio</a>
                 {% endif%}
                 </div>
             </div>
