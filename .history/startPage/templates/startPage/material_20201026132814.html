@@ -1,0 +1,40 @@
+{% extends "startPage/base.html" %}
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <h1>GOLD</h1>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>        
+    </head> 
+    <body style="margin-top: 10;"> 
+    <div class="container"> 
+      <h2 class="text-center"><u>Next 7 Days Predction</u></h2><br>             
+      <table class="table table-dark table-striped"> 
+        <thead> 
+          <tr> 
+            <th>Date</th> 
+            <th>predicted_gold_price</th>
+            <th>signal</th> 
+          </tr> 
+        </thead> 
+        <tbody> 
+        <!-- jinja2 Technique -->
+        {% if data %}   
+        {% for i in data %} 
+          <tr> 
+            <td>{{i.index}}</td> 
+            <td>{{i.predicted_gold_price}}</td>
+            <td>{{i.signal}}</td> 
+          </tr> 
+        {% endfor %} 
+        {% endif %} 
+        </tbody> 
+      </table> 
+    </div> 
+        <img src="data:image/png;base64,{{ data1 }}" alt="" height="500">
+        <img src="data:image/png;base64,{{ data3 }}" alt="" height="500">
+    </body>
+{% endblock content %}

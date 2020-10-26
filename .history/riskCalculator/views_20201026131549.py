@@ -11,6 +11,7 @@ def questions(request):
     }
     # print(formRec['ques5'].value())
     if request.method == 'POST':
+        print('nooop')
         score =(((int(formRec['ques1'].value()) * 25 + int(formRec['ques2'].value()) * 33 + int(formRec['ques3'].value()) * 33 + int(formRec['ques4'].value()) * 33 + int(formRec['ques5'].value()) * 25+ int(formRec['ques6'].value()) * 25))/600)
         userid = request.user.id
         print(score)

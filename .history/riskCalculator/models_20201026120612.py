@@ -14,7 +14,7 @@ class Que(models.Model):
 class RiskModel(models.Model):
     class Meta:
         app_label = 'riskCalculator'
-    userid = models.IntegerField()
+    userid = models.IntegerField(unique=True)
     risk_score = models.DecimalField(
                          max_digits = 5, 
                          decimal_places = 2)
