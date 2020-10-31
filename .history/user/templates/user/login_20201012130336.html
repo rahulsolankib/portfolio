@@ -3,9 +3,8 @@
 {% crispy example_form %}
 
 {% block content %}
-    <div class="content-section" style="margin-left: 10em; margin-right: 50em;">
-        <h1>Login Page</h1>
-
+    <h1>Login Page</h1>
+    <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
